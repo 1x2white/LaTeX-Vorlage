@@ -1,4 +1,6 @@
 # Vorlage verwenden
+Bei dieser Vorlage handelt es sich um eine abgeänderte Version [dieser Vorlage](https://github.com/dhbw-horb/latexVorlage). Sie wurde für die Vorgaben der DHBW Lörrach angepasst. Das Readme-File ist bis auf diesen ersten Absatz im Originalzustand belassen worden.
+
 Pflichtangaben und einigen weitere Einstellungen können in `einstellungen.tex` geändert werden. Kapitel werden in `content` nach dem Schema `<nn>kapitel.tex` angelegt, wobei &lt;nn&gt; eine mindestens zweistellige Zahl sein muss. Das Logo der Firma kann durch das Ersetzen der Datei `images/fima-deckblatt.png` geändert werden. Die Größe des Bildes ändert man durch das Verkleinern/Vergrößern der Datei.
 
 ## Probleme
