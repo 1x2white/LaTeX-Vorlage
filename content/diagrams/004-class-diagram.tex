@@ -1,0 +1,52 @@
+\begin{tikzpicture}
+
+% Klassen
+\umlclass[anchor=north]{Controller}{}{
+	loadConfig(s : String) : String \\
+	convert(f : String) : String
+}
+
+\umlclass[x=-6, y=-4, anchor=north]{Window}{
+	name : String \\
+	content : object
+}{
+	draw() : void \\
+	update() : void
+}
+
+\umlclass[x=6, y=-4, anchor=north]{FileExplorer}{
+	path : String \\
+	files : list \\
+	selection : list
+}{
+	open(f : String) : String \\
+	close(f : String) : void \\
+	save(f : String) : void
+}
+
+\umlclass[x=-6, y=-10, anchor=north, type=enumeration]{DropdownList}{
+	Rotronic Hygrolog \\
+	...
+}{
+	loadItems() : void \\
+	expand() : void \\
+	select() : String
+}
+
+\umlclass[x=6, y=-12, anchor=north]{File}{
+	name: String \\
+	path: String \\
+	content: String
+}{}
+
+
+% Verbindungslinien
+\umlHVHinherit[anchor1=0]{FileExplorer}{Window} 
+\umlVHassoc[mult1=1..n]{Window}{Controller}
+\umlaggreg[mult2=*]{FileExplorer}{File}
+\umlcompo[mult2=1]{Window}{DropdownList}
+
+% Workaround, damit die Multipizität am richtigen Ort steht
+\node (m0) at (-3.5, -1.3) {1};
+
+\end{tikzpicture}

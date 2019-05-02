@@ -1,0 +1,179 @@
+% !TeX root = ../dokumentation.tex
+
+\addchap{\langanhang}
+ 
+
+{\Large
+\begin{enumerate}[label=\Alph*.]
+	\item Liste der Datenlogger
+	\item Logfiles
+\end{enumerate}
+}
+\pagebreak
+
+
+\section*{A. Liste der Datenlogger}
+\begin{tabular}{|l|l|}
+	\hline
+	\textbf{Datenloggertyp} 		& \textbf{Software} \\ \hline
+	Rotronic Hygrolog 	& Rotronic HW3 \\ \hline
+	Rotronic BL-1D 		& Rotronic HW4 \\ \hline
+	Testo 174H			& Testo Comsoft \\ \hline
+	Switrace I-Plug Multi IPMT16-X & iPlug Manager (Switrace) \\ \hline
+	Switrace I-Plug Multi TH IPMH30 & iPlug Manager (Switrace) \\ \hline
+	Lascar EL-GFX-2		& EasyLog USB (Lascar) \\ \hline
+	Lascar EL-USB-2		& EasyLog USB (Lascar) \\ \hline
+\end{tabular}
+
+
+\section*{B. Logfiles}
+Jeweils ein Ausschnitt aus den Logfiles. Die gesamten Dateien befinden sich auf der CD. Kein Logfile zum Rotronic BL-1D. Grund: Siehe Abschnitt 5.1.
+
+\subsection*{Rotronic hygrolog}
+\begin{lstlisting}[language={},inputencoding={utf8}]
+* Rotronic AG
+* Grindelstrasse 6 
+* CH-8306 Bassersdorf/Switzerland   
+* 
+* Phone +41-1-838 11 11
+* http://www.rotronic.ch
+______________________________________________________________________
+
+[DATA]
+Software Version   2.1.2 b
+File=088-211.log
+Gerät=Hygrolog - 1.0
+Type=Logger
+SerieNummer= 60196486   
+LoggModus=Start/Stop
+Interval=0.02.00
+Start=Mittwoch, 28. März 2018   16:38:30
+Stopp=Mittwoch, 4. April 2018   15:18:30
+Holdverzögerung=0.00.00
+Startverzögerung = 0.00.00.00
+Messwerte=Ungemittelt
+unit_0=%rF
+unit_1=°C
+Alarm=aus
+AlarmFeuchteLow=
+AlarmFeuchteHigh=
+AlarmTemperaturLow=
+AlarmTemperaturHigh=
+Batterie-Kapazität=88 %
+Batterie wurde gewechset am Samstag, 1. Januar 2000   00:01:48
+Zeitabweichung=keine Abweichung
+Produktions/Service Datum =Sonntag, 1. Juni 2008
+Note_1=
+Note_2=
+Note_3=
+Note_4=
+Note_5=
+Name_1=
+EndHeader=
+______________________________________________________________________
+
+
+*Zaehler;Datum;Zeit;Temperatur;Feuchte
+    1; 28.03.2018;      19:10:33; 22,69; 42,75
+    2; 28.03.2018;      19:12:33; 22,38; 43,50
+    3; 28.03.2018;      19:14:33; 22,25; 43,75
+    4; 28.03.2018;      19:16:33; 22,13; 43,94
+    5; 28.03.2018;      19:18:33; 22,00; 44,06
+    6; 28.03.2018;      19:20:33; 22,00; 44,19
+    7; 28.03.2018;      19:22:33; 21,88; 44,31
+    8; 28.03.2018;      19:24:33; 21,81; 44,44
+    9; 28.03.2018;      19:26:33; 21,81; 44,50
+   10; 28.03.2018;      19:28:33; 21,75; 44,63
+   11; 28.03.2018;      19:30:33; 21,69; 44,69
+	...
+\end{lstlisting}
+	
+	
+\subsection*{Testo 174H}
+\begin{lstlisting}[language={},inputencoding={utf8}]
+ID;Datum;Temperatur[°C];Feuchte[%rF];
+1;20.04.2018 10:39:00;23.5;37.2;
+2;20.04.2018 10:40:00;23.6;37.1;
+3;20.04.2018 10:41:00;23.7;36.8;
+4;20.04.2018 10:42:00;23.8;36.5;
+5;20.04.2018 10:43:00;23.8;36.7;
+6;20.04.2018 10:44:00;23.9;36.3;
+7;20.04.2018 10:45:00;24;36.2;
+8;20.04.2018 10:46:00;24.1;36.2;
+9;20.04.2018 10:47:00;24.1;36.4;
+10;20.04.2018 10:48:00;24.2;36.3;
+11;20.04.2018 10:49:00;24.3;36.8;
+...
+\end{lstlisting}
+
+
+\subsection*{Switrace IPMT16-X}
+\begin{lstlisting}[language={},inputencoding={utf8}]
+"sep=;"
+GMT;"Local (GMT +2)";temperature
+"13/04/2018 12:15:55";"13/04/2018 14:15:55";28,88
+"13/04/2018 12:16:05";"13/04/2018 14:16:05";29,31
+"13/04/2018 12:16:15";"13/04/2018 14:16:15";28,88
+"13/04/2018 12:16:25";"13/04/2018 14:16:25";28,44
+"13/04/2018 12:16:35";"13/04/2018 14:16:35";28,06
+"13/04/2018 12:16:45";"13/04/2018 14:16:45";27,69
+"13/04/2018 12:16:55";"13/04/2018 14:16:55";27,31
+"13/04/2018 12:17:05";"13/04/2018 14:17:05";29,75
+"13/04/2018 12:17:15";"13/04/2018 14:17:15";31,31
+"13/04/2018 12:17:25";"13/04/2018 14:17:25";30,44
+...
+\end{lstlisting}
+
+
+\subsection*{Switrace IPMH30}
+\begin{lstlisting}[language={},inputencoding={utf8}]
+"sep=;"
+GMT;"Local (GMT +2)";temperature;humidity
+"13/04/2018 12:34:06";"13/04/2018 14:34:06";24,53;47.02
+"13/04/2018 12:34:16";"13/04/2018 14:34:16";24,82;61.61
+"13/04/2018 12:34:26";"13/04/2018 14:34:26";25,02;51.06
+"13/04/2018 12:34:36";"13/04/2018 14:34:36";25,17;44.26
+"13/04/2018 12:34:46";"13/04/2018 14:34:46";25,27;41.12
+"13/04/2018 12:34:56";"13/04/2018 14:34:56";25,35;39.06
+"13/04/2018 12:35:06";"13/04/2018 14:35:06";25,39;40.71
+"13/04/2018 12:35:16";"13/04/2018 14:35:16";25,49;43.58
+"13/04/2018 12:35:26";"13/04/2018 14:35:26";25,59;40.24
+"13/04/2018 12:35:36";"13/04/2018 14:35:36";25,65;38.9
+...
+\end{lstlisting}
+
+\pagebreak
+\subsection*{Lascar EL-GFX-2}
+\begin{lstlisting}[language={},inputencoding={utf8}]
+Datenlogger 32,Time,Celsius(°C),Humidity(%rh),Dew Point(°C),Serial Number
+1,2018-04-23 11:05:14,25.5,40.0,10.9,000002129
+2,2018-04-23 11:05:29,25.5,40.0,10.9
+3,2018-04-23 11:05:44,25.5,40.5,11.1
+4,2018-04-23 11:05:59,25.6,39.9,11.0
+5,2018-04-23 11:06:14,25.6,39.9,11.0
+6,2018-04-23 11:06:29,25.6,39.8,10.9
+7,2018-04-23 11:06:44,25.6,39.7,10.9
+8,2018-04-23 11:06:59,25.6,39.6,10.9
+9,2018-04-23 11:07:14,25.6,39.6,10.9
+10,2018-04-23 11:07:29,25.6,39.5,10.8
+11,2018-04-23 11:07:44,25.6,39.6,10.9
+...
+\end{lstlisting}
+
+
+\subsection*{Lascar EL-USB-2}
+\begin{lstlisting}[language={},inputencoding={utf8}]
+DD Arheit,Time,Celsius(°C),Humidity(%rh),Dew Point(°C),Serial Number
+1,2018-04-23 11:13:31,26.0,36.0,9.8,010036746
+2,2018-04-23 11:13:51,26.0,36.5,10.0
+3,2018-04-23 11:14:11,26.0,36.0,9.8
+4,2018-04-23 11:14:31,26.0,36.0,9.8
+5,2018-04-23 11:14:51,26.0,35.5,9.6
+6,2018-04-23 11:15:11,26.0,51.5,15.2
+7,2018-04-23 11:15:31,26.0,36.5,10.0
+8,2018-04-23 11:15:51,26.0,36.0,9.8
+9,2018-04-23 11:16:11,26.0,35.5,9.6
+10,2018-04-23 11:16:31,26.0,35.5,9.6
+11,2018-04-23 11:16:51,26.0,35.5,9.6
+...
+\end{lstlisting}

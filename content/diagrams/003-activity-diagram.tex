@@ -1,0 +1,93 @@
+\begin{tikzpicture}
+
+\tikzstyle{area}=[
+	rectangle,
+	rounded corners,
+	minimum width=4.5cm,
+	minimum height=14cm,
+	draw=green!50,
+	fill=green!10
+]
+
+\tikzstyle{state}=[
+	rectangle,
+	rounded corners,
+	text width=3cm,
+	minimum width=3cm,
+	minimum height=1cm,
+	align=center,
+	draw=black,
+	fill=white
+]
+
+\tikzstyle{->}=[
+	decoration={
+		markings,
+		mark=at position 1 with {\arrow[scale=3,>=stealth]{>}}
+	},
+	postaction={decorate},
+	rounded corners=5pt
+]
+
+% Äussere Felder
+\node (area1) [area] at (0, -6) {
+	\begin{minipage}[t][13cm]{4.5cm}
+		\textbf{User}
+	\end{minipage}
+};
+\node (area2) [area] at (5, -6) {
+	\begin{minipage}[t][13cm]{4.5cm}
+	\textbf{GUI}
+	\end{minipage}
+};
+
+\node (area3) [area] at (10, -6) {
+	\begin{minipage}[t][13cm]{4.5cm}
+	\textbf{Controller}
+	\end{minipage}
+};
+
+
+% Erse Kolonne von Zuständen
+\node (a0) [shape=circle, fill=black] at (0, -0.5) {};
+\node (a1) [state] at (0, -2) {Software starten};
+\node (a2) [state] at (0, -4) {\dq öffnen\dq~klicken};
+\node (a3) [state] at (0, -6) {Datei auswählen, \\ \dq OK\dq~klicken};
+\node (a4) [state] at (0, -8) {Dropdown: \\Format wählen};
+\node (a5) [state] at (0, -10) {\dq Export\dq~klicken};
+\node (a6) [state] at (0, -12) {Speicherort wählen, \\\dq OK\dq~klicken};
+
+\draw[->] (a0) to (a1);
+\draw[->] (a1) to (a2);
+\draw[->] (a2) to (a3);
+\draw[->] (a3) to (a4);
+\draw[->] (a4) to (a5);
+\draw[->] (a5) to (a6);
+
+% Zweite Kolonne
+\node (b1) [state] at (5, -2) {Fenster anzeigen};
+\node (b2) [state] at (5, -4) {Dateiexplorer anzeigen};
+\node (b3) [state] at (5, -6) {Liste d. geladenen Dateien anzeigen};
+\node (b4) [state] at (5, -8) {\dq Exportieren\dq -Button anzeigen};
+\node (b5) [state] at (5, -10) {Dateiexplorer anzeigen};
+\node (b6) [state] at (5, -12) {Erfolgsmeldung anzeigen};
+\node (b7) [shape=circle, double, outer sep=0.5pt, fill=black, draw=black] at (5, -14) {};
+
+
+\draw[->] (a1) to (b1);
+\draw[->] (a2) to (b2);
+\draw[->] (a3) to (b3);
+\draw[->] (a4) to (b4);
+\draw[->] (a5) to (b5);
+\draw[->] (b6) to (b7);
+
+% Dritte Kolonne
+\node (c1) [state] at (10, -7) {Inhalt der Dateien laden};
+\node (c2) [state] at (10, -9) {Daten umstrukturieren};
+\node (c5) [state] at (10, -12) {Neue Dateien schreiben};
+
+\draw[->] (c2) to (c5);
+\draw[->] (a3.south) |- (c1);
+\draw[->] (a6) -| (2.5, -11) -- (7.5, -11) |- (c2.west);
+\draw[->] (c5) to (b6);
+\end{tikzpicture}

@@ -1,0 +1,125 @@
+%%**************************************************************
+%% Vorlage fuer Bachelorarbeiten (o.ä.) der DHBW
+%%
+%% Autor: Tobias Dreher, Yves Fischer
+%% Datum: 06.07.2011
+%%
+%% Autor: Michael Gruben
+%% Datum: 15.05.2013
+%%
+%% Autor: Markus Barthel
+%% Datum: 22.08.2014
+%%
+%% Autor: Jefrey Husi
+%% Datum: 15.01.2018
+%%**************************************************************
+
+\input{ads/header}
+
+\makeglossaries
+\input{ads/glossary}
+
+\begin{document}
+
+	\newcounter{savepage}
+	\pagenumbering{Roman}
+	
+	% Deckblatt
+	\begin{spacing}{1}
+		\input{ads/deckblatt}
+	\end{spacing}
+	\newpage
+	
+	% Erklärung
+	\input{ads/erklaerung}
+	\newpage
+	
+	%Freigabe
+	\input{ads/freigabe.tex}
+	\newpage
+	
+	% Sperrvermerk
+	\input{ads/sperrvermerk} % Auskommentieren fall nicht nötig
+	\newpage
+
+
+	% Abstract
+	\input{ads/abstract}
+	\newpage
+
+	\pagestyle{plain}		% nur Seitenzahlen im Fuß
+	
+	\RedeclareSectionCommand[beforeskip=\kapitelabstand         ]{chapter} % stellt Abstand vor Kapitelüberschriften ein
+
+	% Inhaltsverzeichnis
+	\begin{spacing}{1.1}
+		\begingroup
+		
+			% auskommentieren für Seitenzahlen unter Inhaltsverzeichnis
+			\renewcommand*{\chapterpagestyle}{empty}
+			\pagestyle{empty}
+			
+			
+			\setcounter{tocdepth}{1}
+			%für die Anzeige von Unterkapiteln im Inhaltsverzeichnis
+			\setcounter{tocdepth}{2}
+			
+			\tableofcontents
+			\clearpage
+		\endgroup
+	\end{spacing}
+	\newpage
+
+	% Abkürzungsverzeichnis
+	\cleardoublepage
+	\input{ads/acronyms}
+
+	% Abbildungsverzeichnis
+	\cleardoublepage
+	\listoffigures
+
+	%Tabellenverzeichnis
+	% \cleardoublepage
+	% \listoftables
+
+	% Quellcodeverzeichnis
+	\cleardoublepage
+	\lstlistoflistings
+	\cleardoublepage
+
+	\setcounter{savepage}{\arabic{page}}
+	\pagenumbering{arabic}
+	
+	\pagestyle{headings}		% Kolumnentitel im Kopf, Seitenzahlen im Fuß
+
+	% Inhalt
+	\foreach \i in {01,02,03,04,05,06,07,08,09,...,99} {%
+		\edef\FileName{content/\i kapitel}%
+			\IfFileExists{\FileName}{%
+				\input{\FileName}
+			}
+			{%
+				%file does not exist
+			}
+	}
+
+	\clearpage
+
+	\cleardoublepage
+	
+	\pagenumbering{Roman}
+	\setcounter{page}{\thesavepage}
+	\pagestyle{plain}
+	
+	% Literaturverzeichnis
+	\printbibliography
+
+	% Glossar
+	\printglossary[style=altlist,title=\langglossar]
+	
+	% sonstiger Anhang
+	\clearpage
+	\appendix
+	\input{ads/appendix}
+	
+\end{document}

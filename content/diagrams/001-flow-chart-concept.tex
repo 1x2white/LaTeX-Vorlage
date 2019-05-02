@@ -1,0 +1,28 @@
+\begin{tikzpicture}
+	\definecolor{beige}{rgb}{.97,.97,.87}
+	
+	\node [draw, rectangle, 
+		   align=center] 								   (1)   {datei001.log\\datei002.log\\\vdots};
+	\node [draw, diamond,   right of=1, node distance=3cm] (2)   {Import};
+	\node [draw, rectangle, right of=2, node distance=3cm,
+		   minimum size=2cm, fill=beige] 			   (3)   {Programm};
+	\node [draw, diamond,   right of=3, node distance=3cm] (4)	 {Export};
+	\node [draw, rectangle, below of=4, node distance=3cm,
+		   align=center] 								   (5)   {datei001-exp.log\\datei002-exp.log\\\vdots};
+	\node [draw, diamond,   below of=5, node distance=3cm,
+		   align=center]								   (6)	 {Import\\Excel};
+	\node [draw, rectangle, left of=6,  node distance=3cm,
+		   minimum size=2cm, fill=beige] 							   (7)   {Excel};
+	\node [draw, diamond,   left of=7,  node distance=3cm] (8)	 {Macro};
+	\node [draw, rectangle, left of=8, node distance=3cm,
+		   align=center] 								   (9)   {Blatt für\\pdf Export};
+	
+	\path [->] (1) edge (2);
+	\path [->] (2) edge (3);
+	\path [->] (3) edge (4);
+	\path [->] (4) edge (5);
+	\path [->] (5) edge (6);
+	\path [->] (6) edge (7);
+	\path [->] (7) edge (8);
+	\path [->] (8) edge (9);
+\end{tikzpicture}
